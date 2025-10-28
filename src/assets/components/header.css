@@ -1,0 +1,82 @@
+.banner {
+  background-color: rgb(218, 99, 156);
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 500;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.icon {
+  color: #da639c;
+  height: 1.9em;
+  width: 1.9em;
+  transition: all 0.3s;
+}
+header .actions button:hover .icon {
+  color: #ff7aba;
+}
+header {
+  margin-top: 10px;
+  padding: 0px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  color: white;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 0.9em;
+}
+header .logo img {
+  width: 6rem;
+}
+
+header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: rgb(218, 99, 156);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+header .actions {
+  justify-self: end;
+}
+header .actions button {
+  background: transparent;
+  display: grid;
+  place-items: center;
+  border: none;
+}
+header .actions button:hover {
+  border: none;
+}
+@media (max-width: 600px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+  }
+  header .logo,
+  header nav,
+  header .actions {
+    justify-self: center;
+    margin: 5px 0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  header {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  header .logo {
+    color: #213547;
+  }
+  header nav a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

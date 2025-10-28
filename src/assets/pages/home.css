@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+main {
+  position: relative; /* Needed for overlay positioning */
+  background: url("../heroBg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-rows: max-content max-content 1fr;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  overflow: hidden; /* Prevent overlay overflow */
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.408); /* Semi-transparent overlay */
+  backdrop-filter: blur(0.5px); /* Adjust blur as needed */
+  z-index: 1;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+main > * {
+  position: relative;
+  z-index: 2; /* Ensure content is above overlay */
+}
+
+main .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+main .left h1 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 0.2em;
+  color: #fff;
+  text-transform: capitalize;
+  position: relative;
+  font-weight: normal;
+}
+main .left h1 .butterfly {
+  height: 3em;
+  vertical-align: middle;
+  z-index: -1;
+  rotate: -20deg;
+  left: 18rem;
+  bottom: -2rem;
+  position: absolute;
+  fill: rgb(218, 99, 156);
+}
+main .left p {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #ddd;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "pacifico", cursive;
+}
+main .left button {
+  font-size: 1.1em;
+  padding: 0.75em 1.5em;
+  background-color: rgb(218, 99, 156);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: max-content;
+  margin: 0 auto;
+}
+main .left button:hover {
+  background-color: rgb(174, 80, 125);
+}
+.products-section {
+  padding: 40px 20px;
+  background-color: #000000;
+  color: white;
+}
+.products-section h2 {
+  color: rgb(218, 99, 156);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.products-section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 20px;
+}
+.products-section-grid .product-card {
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgb(218, 99, 156);
+  min-height: 22rem;
+  text-align: left;
+}
+.products-section-grid .product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.products-section-grid .product-card img {
+  max-width: 100%;
+  margin-bottom: 15px;
+  background-color: rgb(214, 214, 214);
+}
+.products-section-grid .product-card h3 {
+  font-size: 0.9em;
+  color: #ffffff;
+  justify-self: start;
+  text-wrap: nowrap;
+  text-transform: capitalize;
+}
+.products-section-grid .product-card .product-desc {
+  justify-self: start;
+  align-self: end;
+  height: max-content;
+}
+.products-section-grid .product-card p {
+  font-size: 1em;
+  color: #ffffff;
+  justify-self: start;
+  height: max-content;
+}
+.products-section-grid .product-card button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: rgb(218, 99, 156);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.products-section-grid .product-card:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.products-section-grid .product-card button:hover {
+  background-color: rgb(174, 80, 125);
+}
+@media (max-width: 768px) {
+  main {
+    grid-template-rows: max-content max-content max-content;
+  }
+  main .left h1 {
+    font-size: 2.5em;
+  }
+  main .left p {
+    font-size: 1.5em;
+  }
+  main .left h1 .butterfly {
+    height: 2.5em;
+    left: 12rem;
+    bottom: -1.5rem;
+  }
+}

@@ -1,0 +1,84 @@
+/* General wrapper */
+.admin-login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+  font-family: "Arial", sans-serif;
+}
+
+/* Login form container */
+.admin-login-form {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 350px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Form title */
+.admin-login-form h2 {
+  margin-bottom: 2rem;
+  color: #222;
+  font-size: 1.8rem;
+}
+
+/* Input fields */
+.admin-login-form input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  color: #da639c;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background-color: white;
+}
+.admin-login-form input::placeholder {
+  color: #da639c;
+}
+
+.admin-login-form input:focus {
+  outline: none;
+  border-color: #da639c;
+}
+
+/* Submit button */
+.admin-login-form button {
+  background-color: #da639c;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.admin-login-form button:hover {
+  background-color: #c25187;
+}
+
+/* Error message */
+.admin-login-form .error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Loader */
+.admin-login-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #555;
+}

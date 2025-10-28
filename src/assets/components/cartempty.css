@@ -1,0 +1,17 @@
+.cart-empty-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.message {
+  background-color: rgb(218, 99, 156);
+  width: 50rem;
+  height: 20rem;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2rem;
+  font-family: "Black Han Sans", sans-serif;
+}

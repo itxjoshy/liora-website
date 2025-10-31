@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import logo from "../Logo.png";
+import logo from "../logo.png";
 function OrderApproved() {
   const navigate = useNavigate();
   const { id } = useParams();

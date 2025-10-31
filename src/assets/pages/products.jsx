@@ -101,7 +101,6 @@ function ProductsPage() {
               style={{
                 background: "transparent",
                 border: "none",
-                color: "rgb(34,34,34)",
                 cursor: "pointer",
                 fontSize: "0.95rem",
                 left: 60,

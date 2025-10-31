@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../pages/products.css";
-import logo from "../Logo.png";
+import logo from "../logo.png";
 import Header from "../components/header.jsx";
 import { cart } from "../cart";
 import { useParams, useNavigate } from "react-router-dom";

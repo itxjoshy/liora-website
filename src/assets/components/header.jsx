@@ -3,17 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 import logo from "../logo.png";
-import { cart } from "../cart";
 import { totalItems } from "../pages/cart";
 
 function Header() {
   const [cartLength, setCartLength] = useState(totalItems);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateCartLength = () => setCartLength(totalItems);
     window.addEventListener("cartUpdated", updateCartLength);
     return () => window.removeEventListener("cartUpdated", updateCartLength);
   }, []);
+
+  useEffect(() => {
+    // toggle a class on <body> so we can prevent background scrolling
+    document.body.classList.toggle("nav-open", menuOpen);
+    return () => document.body.classList.remove("nav-open");
+  }, [menuOpen]);
 
   return (
     <>
@@ -22,10 +28,23 @@ function Header() {
         above N70,000
       </div>
       <header>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+        <button
+          className={`hamburger ${menuOpen ? "is-open" : ""}`}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((s) => !s)}
+        >
+          <span className="hamburger-box">
+            <span className="hamburger-inner" />
+          </span>
+        </button>
+        <nav className={`site-nav ${menuOpen ? "open" : ""}`}>
+          <a href="/" onClick={() => setMenuOpen(false)}>
+            Home
+          </a>
+          <a href="/contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
         </nav>
         <div className="logo">
           <img src={logo} alt="" />
@@ -55,6 +74,10 @@ function Header() {
             </button>
           </a>
         </div>
+        <div
+          className={`nav-backdrop ${menuOpen ? "visible" : ""}`}
+          onClick={() => setMenuOpen(false)}
+        />
       </header>
     </>
   );

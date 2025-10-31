@@ -37,6 +37,14 @@ header nav a {
   color: rgb(218, 99, 156);
   font-weight: 500;
   transition: color 0.3s;
+  padding: 10px;
+  border-radius: 10px;
+  width: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+header nav a:hover {
+  background-color: rgb(218, 99, 156);
+  color: white;
 }
 
 header .actions {
@@ -51,37 +59,181 @@ header .actions button {
 header .actions button:hover {
   border: none;
 }
-/* responsive adjustments for medium screens */
-@media (max-width: 900px) {
-  header {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto;
-    padding: 10px 14px;
-    gap: 8px;
-    align-items: center;
-  }
 
-  header .logo img {
-    width: 5.2rem; /* slightly smaller */
-  }
+/* hamburger button */
+.hamburger {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: 6px;
+  justify-self: start;
+  z-index: 9999;
+}
+.hamburger-box {
+  width: 22px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 22px;
+  height: 2px;
+  background-color: #da639c;
+  position: absolute;
+  left: 0;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  border-radius: 2px;
+}
+.hamburger-inner {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburger-inner::before {
+  content: "";
+  top: -7px;
+}
+.hamburger-inner::after {
+  content: "";
+  top: 7px;
+}
+.hamburger.is-open .hamburger-inner {
+  transform: rotate(45deg);
+}
+.hamburger.is-open .hamburger-inner::before {
+  transform: rotate(90deg) translateX(0);
+  top: 0;
+}
+.hamburger.is-open .hamburger-inner::after {
+  transform: rotate(90deg);
+  top: 0;
+  opacity: 0;
+}
 
-  header nav {
-    justify-self: start;
-    width: 100%;
-  }
+/* backdrop for mobile menu */
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
 
-  header nav a {
-    margin: 0 10px;
-    font-size: 0.95rem;
-  }
+/* small screens: hide inline nav, show hamburger and mobile drawer */
 
-  header .actions {
-    justify-self: end;
+.hamburger {
+  display: inline-flex;
+}
+
+.site-nav {
+  /* replace drawer to slide down from the top (instead of from the left) */
+  display: none;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* top drawer positioning */
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: 8px;
+  max-width: 720px;
+  margin: 0 auto;
+  height: 30vh;
+  padding: 14px;
+
+  /* start off-screen above */
+  transform: translateY(-120%);
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  z-index: 10000;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+}
+
+.site-nav.open {
+  display: flex;
+  transform: translateY(0);
+}
+
+/* backdrop should allow clicks to close and fade in */
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+.nav-backdrop.visible {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ensure the hamburger remains at extreme left in header grid */
+.hamburger {
+  justify-self: start;
+  margin-left: 0;
+}
+
+/* small screens: hide inline nav, show hamburger and mobile drawer */
+
+.hamburger {
+  display: inline-flex;
+}
+
+.site-nav {
+  display: none;
+  z-index: 998;
+}
+
+.site-nav.open {
+  display: flex;
+}
+
+/* mobile drawer */
+.site-nav.open {
+  position: fixed;
+  top: 0px;
+  background: rgba(255, 255, 255, 0.455);
+  color: #111;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  transform-origin: top center;
+  backdrop-filter: blur(10px);
+  --webkit-backdrop-filter: blur(10px);
+  animation: slideDown 220ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+
+.nav-backdrop.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* small animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.995);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(3.4rem) scale(1);
   }
 }
 
 /* mobile: stack elements, wrap nav links, increase touch areas */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   header {
     display: flex;
     justify-content: space-between;
@@ -136,4 +288,11 @@ header .actions button:hover {
 header .actions .icon {
   width: 1.8em;
   height: 1.8em;
+}
+
+/* prevent page scrolling while nav drawer is open */
+body.nav-open {
+  overflow: hidden;
+  height: 100%;
+  -webkit-overflow-scrolling: auto;
 }

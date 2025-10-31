@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
 main {
   position: relative; /* Needed for overlay positioning */
-  background: url("../heroBg.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../heroBg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11,21 +12,6 @@ main {
   width: 100%;
   text-align: center;
   overflow: hidden; /* Prevent overlay overflow */
-}
-
-main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.408); /* Semi-transparent overlay */
-  backdrop-filter: blur(0.5px); /* Adjust blur as needed */
-  z-index: 1;
-  pointer-events: none; /* Allow clicks to pass through */
-}
-
-main > * {
-  position: relative;
-  z-index: 2; /* Ensure content is above overlay */
 }
 
 main .left {

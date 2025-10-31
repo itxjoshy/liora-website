@@ -7,7 +7,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
-import logo from "../Logo.png";
+import logo from "../logo.png";
 import "./admin.css";
 
 function Admin() {

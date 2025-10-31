@@ -191,7 +191,7 @@ header .actions button:hover {
 
 .site-nav {
   display: none;
-  z-index: 998;
+  z-index: 1000;
 }
 
 .site-nav.open {

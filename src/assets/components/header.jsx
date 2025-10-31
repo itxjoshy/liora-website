@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
-import logo from "../Logo.png";
+import logo from "../logo.png";
 import { cart } from "../cart";
 import { totalItems } from "../pages/cart";
 

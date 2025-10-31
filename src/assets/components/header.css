@@ -51,32 +51,89 @@ header .actions button {
 header .actions button:hover {
   border: none;
 }
-@media (max-width: 600px) {
+/* responsive adjustments for medium screens */
+@media (max-width: 900px) {
   header {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    text-align: center;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    padding: 10px 14px;
+    gap: 8px;
+    align-items: center;
   }
-  header .logo,
-  header nav,
+
+  header .logo img {
+    width: 5.2rem; /* slightly smaller */
+  }
+
+  header nav {
+    justify-self: start;
+    width: 100%;
+  }
+
+  header nav a {
+    margin: 0 10px;
+    font-size: 0.95rem;
+  }
+
   header .actions {
-    justify-self: center;
-    margin: 5px 0;
+    justify-self: end;
   }
 }
 
-@media (prefers-color-scheme: light) {
+/* mobile: stack elements, wrap nav links, increase touch areas */
+@media (max-width: 600px) {
   header {
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 8px 12px;
+  }
+  main {
+    background-position: 80%;
   }
   header .logo {
-    color: #213547;
+    justify-self: center;
+    margin: 4px 0;
   }
-  header nav a:hover {
-    color: #747bff;
+
+  header .logo img {
+    width: 7rem;
+    max-width: 60%;
   }
-  button {
-    background-color: #f9f9f9;
+
+  header nav {
+    display: none;
   }
+
+  header nav a {
+    margin: 6px 8px;
+    font-size: 0.95rem;
+    padding: 6px 8px;
+  }
+
+  header .actions {
+    justify-self: center;
+    margin-bottom: 6px;
+  }
+
+  header .actions button {
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+
+  .banner {
+    font-size: 0.95rem;
+    padding: 6px 3px;
+  }
+  .main-content .left {
+    justify-self: center;
+    height: 90vh;
+  }
+}
+
+/* ensure icons and spinners remain visible and touch friendly */
+header .actions .icon {
+  width: 1.8em;
+  height: 1.8em;
 }

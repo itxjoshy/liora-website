@@ -5,8 +5,8 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import "./AdminLogin.css";
-import logo from "../Logo.png";
+import "./adminLogin.css";
+import logo from "../logo.png";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");

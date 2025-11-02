@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./siteLock.css";
+import "./sitelock.css";
 import logo from "../Logo.png";
 
 function SiteLock() {

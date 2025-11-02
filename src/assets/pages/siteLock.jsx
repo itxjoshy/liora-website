@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./sitelock.css";
-import logo from "../Logo.png";
+import logo from "../logo.png";
 
 function SiteLock() {
   const [email, setEmail] = useState("");

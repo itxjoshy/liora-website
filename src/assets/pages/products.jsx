@@ -42,7 +42,6 @@ function ProductsPage() {
         const product = productsList.find((item) => item.id === id);
         setFilteredProduct(product);
         setProduct(productsList);
-        console.log("Fetched products:", productsList);
       } catch (error) {
         console.error("Error fetching products:", error);
         setError("Failed to load product data.");

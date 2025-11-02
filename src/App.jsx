@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase";
 import SiteLock from "./assets/pages/siteLock.jsx";
+import ProtectedRoute from "./assets/components/protectedRoute.jsx";
 import Home from "./assets/pages/home.jsx";
 import ProductsPage from "./assets/pages/products.jsx";
 import Cart from "./assets/pages/cart.jsx";
@@ -48,30 +49,39 @@ function App() {
   if (false) return <div>Loading...</div>;
 
   return (
-    console.log("storefrontLocked:", storefrontLocked),
-    (
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={storefrontLocked ? <SiteLock /> : <Home />}
-          />
-          <Route path="/products/:id/:slug" element={<ProductsPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route
-            path="/admin"
-            element={
-              <PrivateRoute>
-                <Admin />
-              </PrivateRoute>
-            }
-          />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/orderApproved/:id" element={<OrderApproved />} />
-        </Routes>
-      </Router>
-    )
+    <Router>
+      <Routes>
+        <Route path="/" element={storefrontLocked ? <SiteLock /> : <Home />} />
+        <Route
+          path="/products/:id/:slug"
+          element={
+            <ProtectedRoute locked={storefrontLocked}>
+              <ProductsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute locked={storefrontLocked}>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/admin-login" element={<AdminLogin />} />
+
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute>
+              <Admin />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/orderApproved/:id" element={<OrderApproved />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -44,7 +44,6 @@ function Home() {
         }));
         setProducts(productsList);
         setFetchProducts(true);
-        console.log("Fetched products:", productsList);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

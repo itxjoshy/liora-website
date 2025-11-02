@@ -1,0 +1,43 @@
+.cart-item {
+  background: rgb(218, 99, 156);
+  border-radius: 20px;
+}
+.item-name {
+  color: white;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 1.2rem;
+  margin: 10px 0 5px 0;
+}
+
+.item-quantity {
+  padding: 0px 20px 10px 0px;
+  margin-top: -30px;
+  justify-self: end;
+  font-family: "Black Han Sans", sans-serif;
+  color: white;
+}
+.cart-item-details p:first-of-type {
+  text-transform: capitalize;
+}
+.cart-item-details p:last-of-type {
+  font-weight: bold;
+}
+@media screen and (max-width: 600px) {
+  .item-quantity {
+    margin-top: -10px;
+  }
+  .item-name {
+    font-size: 1rem;
+  }
+  .item-quantity {
+    font-size: 0.9rem;
+    justify-self: start;
+  }
+  .cart-items {
+    order: 1;
+  }
+  .cart-summary {
+    order: 0;
+    margin-bottom: 20px;
+  }
+}

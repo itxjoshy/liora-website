@@ -41,3 +41,11 @@
 .summary img {
   width: 25%;
 }
+@media (max-width: 800px) {
+  .checkout-page {
+    grid-template-columns: 1fr;
+  }
+  .summary img {
+    width: 50%;
+  }
+}

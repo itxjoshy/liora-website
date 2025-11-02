@@ -95,21 +95,7 @@ function ProductsPage() {
             <p>Shipping might take 5 to 7 days depending on location</p>
           </div>
           <div className="product-selector">
-            <button
-              className="back-button"
-              onClick={() => navigate("/")}
-              style={{
-                background: "transparent",
-                border: "none",
-                cursor: "pointer",
-                fontSize: "0.95rem",
-                left: 60,
-                top: 30,
-                position: "absolute",
-                textAlign: "left",
-                color: "rgb(218, 99, 156)",
-              }}
-            >
+            <button className="back-button" onClick={() => navigate("/")}>
               ← Back
             </button>
 
@@ -131,6 +117,7 @@ function ProductsPage() {
               </select>
             </div>
             <div
+              className="product-quantity"
               style={{
                 margin: "20px 0",
                 display: "flex",
@@ -139,21 +126,11 @@ function ProductsPage() {
             >
               <input
                 id="quantity-select"
+                className="quantity-input"
                 type="number"
                 min={1}
                 value={quantity}
                 onChange={(e) => setQuantity(Number(e.target.value))}
-                style={{
-                  marginLeft: "10px",
-                  width: "9rem",
-                  padding: "15px",
-                  background: "transparent",
-                  border: "none",
-                  borderBottom: "1px solid black",
-                  color: " rgb(218, 99, 156)",
-                  fontSize: "1.2rem",
-                  MozAppearance: "textfield", // Firefox
-                }}
                 inputMode="numeric"
                 pattern="[0-9]*"
               />

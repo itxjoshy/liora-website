@@ -60,18 +60,7 @@
   display: grid;
   gap: 15px;
 }
-.product-selector button {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  min-width: 50px;
-  display: inline;
-  justify-self: left;
-}
+
 .product-sizes {
   position: relative;
 }
@@ -100,7 +89,7 @@
   background-size: 20px 20px;
   color: rgb(218, 99, 156);
 }
-.product-selector button {
+.product-selector .add-to-cart {
   background-color: rgb(218, 99, 156);
   color: white;
   height: max-content;
@@ -114,9 +103,31 @@
   background-color: rgb(218, 99, 156);
   color: white;
 }
+.quantity-input {
+  margin-left: 10px;
+  width: 9rem;
+  padding: 15px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  color: rgb(218, 99, 156);
+  font-size: 1.2rem;
+  -moz-appearance: textfield; /* Firefox */
+}
 .product-info {
   color: rgb(0, 0, 0);
   text-transform: capitalize;
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  background-color: transparent;
+  border: none;
+  color: rgb(218, 99, 156);
+  font-size: 1.2em;
+  cursor: pointer;
+  font-family: "Black Han Sans", sans-serif;
 }
 .product-info ul {
   list-style-type: none;
@@ -128,9 +139,40 @@
 @media (max-width: 800px) {
   .products-page {
     grid-template-columns: 1fr;
+    align-items: center;
   }
   .product-display img {
+    margin-top: 20px;
     margin-bottom: 20px;
+  }
+  .products-page h1,
+  .products-page p,
+  .products-page li,
+  .products-page h2,
+  .products-page h3 {
+    text-align: center;
+  }
+  .product-sizes {
+    justify-items: center;
+  }
+  .product-sizes select {
+    width: 100%;
+  }
+  .product-quantity {
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    align-items: center;
+  }
+  .product-quantity .add-to-cart,
+  #quantity-select {
+    width: 100%;
+    padding: 20px;
+  }
+  .back-button {
+    top: 10px;
+    left: 10px;
+    background: transparent;
   }
 }
 @media (prefers-color-scheme: light) {

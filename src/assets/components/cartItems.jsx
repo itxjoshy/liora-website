@@ -1,4 +1,5 @@
 import React from "react";
+import "./cartitems.css";
 import "../cart";
 
 import { cart } from "../cart";
@@ -6,13 +7,7 @@ function CartItems() {
   return (
     <div style={{ display: "grid", gap: "10px" }}>
       {cart.map((item, index) => (
-        <div
-          style={{
-            background: "rgb(218, 99, 156)",
-            borderRadius: "20px",
-          }}
-          key={index}
-        >
+        <div className="cart-item" key={index}>
           <div
             style={{
               display: "flex",
@@ -39,27 +34,11 @@ function CartItems() {
                 }}
               />
             </div>
-            <p
-              style={{
-                color: "white",
-                fontFamily: "Black Han Sans, sans-serif",
-                fontSize: "1.2rem",
-              }}
-            >
-              {item.name}
-            </p>
+            <div>
+              <p className="item-name">{item.name}</p>
+              <p className="item-quantity">quantity: {item.quantity}</p>
+            </div>
           </div>
-          <p
-            style={{
-              padding: "0px 20px 10px 0px",
-              marginTop: "-30px",
-              justifySelf: "end",
-              color: "white",
-              fontFamily: "Black Han Sans, sans-serif",
-            }}
-          >
-            quantity: {item.quantity}
-          </p>
         </div>
       ))}
     </div>

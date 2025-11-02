@@ -84,5 +84,6 @@
 @media (max-width: 800px) {
   .cart-page {
     grid-template-columns: 1fr;
+    padding: 10px;
   }
 }

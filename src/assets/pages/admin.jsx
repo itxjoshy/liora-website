@@ -47,13 +47,20 @@ function Admin() {
         }
       );
 
-      //lock website
-      //const lockWebsite = getDoc(collection(db, "settings"));
-
+      const storefront = onSnapshot(
+        doc(db, "settings", "sitefrontlock"),
+        (docSnap) => {
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            setLocked(data.locked);
+          }
+        }
+      );
       // Cleanup: stop listening when component unmounts
       return () => {
         unsubscribeOrders();
         unsubscribeProducts();
+        storefront();
       };
     } catch (e) {
       console.log("Error setting up listeners:", e);
@@ -122,14 +129,18 @@ function Admin() {
   };
 
   // STORE LOCK
-  const toggleLock = () => {
+  const toggleLock = async () => {
     const yes = window.confirm(
       `${locked ? "Unlock" : "Lock"} storefront? This will ${
         locked ? "re-enable" : "disable"
       } the public site.`
     );
     if (!yes) return;
-    setLocked((v) => !v);
+    const newStatus = !locked;
+    setLocked(newStatus);
+    await updateDoc(doc(db, "settings", "sitefrontlock"), {
+      locked: newStatus,
+    });
     alert(`Storefront ${locked ? "unlocked" : "locked"}.`);
     window.dispatchEvent(new Event("storeLockChanged"));
   };

@@ -12,7 +12,6 @@ import CheckoutPage from "./assets/pages/checkout.jsx";
 import OrderApproved from "./assets/pages/orderApproved.jsx";
 import "./App.css";
 import Admin from "./assets/pages/admin.jsx";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const cached = localStorage.getItem("storefrontLocked");
@@ -43,7 +42,7 @@ function App() {
         }
       );
     }
-    return () => fetchStoreLockStatus();
+    fetchStoreLockStatus();
   }, []);
 
   if (false) return <div>Loading...</div>;

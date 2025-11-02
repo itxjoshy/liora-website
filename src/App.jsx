@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase";
@@ -16,8 +16,11 @@ import Admin from "./assets/pages/admin.jsx";
 function App() {
   const [storefrontLocked, setStorefrontLocked] = useState(false);
   const [loading, setLoading] = useState(true);
+  const initialized = useRef(false);
   useEffect(() => {
-    async function fetchStoreLockStatus() {
+    if (initialized.current) return;
+    initialized.current = true;
+    function fetchStoreLockStatus() {
       const docRef = doc(db, "settings", "sitefrontlock");
       const docSnap = onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {

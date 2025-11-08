@@ -96,6 +96,8 @@ function SiteLock() {
         <footer className="site-lock__foot mute">
           © {new Date().getFullYear()} Liora — limited runs · follow on socials
           for updates
+          <br />
+          <a href="/admin">Admin</a>
         </footer>
       </div>
     </main>

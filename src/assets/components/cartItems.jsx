@@ -8,13 +8,7 @@ function CartItems() {
     <div style={{ display: "grid", gap: "10px" }}>
       {cart.map((item, index) => (
         <div className="cart-item" key={index}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              padding: "10px",
-            }}
-          >
+          <div className="item-details">
             <div
               style={{
                 display: "flex",

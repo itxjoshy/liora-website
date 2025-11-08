@@ -8,7 +8,12 @@
   font-size: 1.2rem;
   margin: 10px 0 5px 0;
 }
-
+.item-details {
+  display: grid;
+  grid-template-columns: max-content auto;
+  padding: 20px 0;
+  align-items: center;
+}
 .item-quantity {
   padding: 0px 20px 10px 0px;
   margin-top: -30px;

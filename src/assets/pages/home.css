@@ -98,6 +98,8 @@ main .left button:hover {
 .products-section-grid .product-card img {
   max-width: 100%;
   margin-bottom: 15px;
+  height: 210.98px;
+  object-fit: contain;
   background-color: rgb(214, 214, 214);
 }
 .products-section-grid .product-card h3 {

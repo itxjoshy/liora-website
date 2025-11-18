@@ -77,7 +77,7 @@ function ProductsPage() {
     );
 
   //error state
-  if (error) return <p className="text-red-500">{error}</p>;
+  if (error) return <p>{error}</p>;
 
   // Not found
   if (!Filteredproduct) return <p>Product not found.</p>;
